@@ -1,4 +1,4 @@
-## TemporalMaxer: Maximize Temporal Context with only Max Pooling for Temporal Action Localization
+## TemporalStdMaxer: Maximize Temporal Context with only Max Pooling for Temporal Action Localization
 This is the official implementation of the paper [TemporalMaxer](https://arxiv.org/pdf/2303.09055.pdf). 
 
 We release the training and testing code for THUMOS, EPIC-Kitchen 100 (verb, noun), and MultiTHUMOS datasets.
@@ -77,10 +77,10 @@ The code should be recompiled every time you update PyTorch.
 
 * The results should be:
 
-| Method               |  0.1  |  0.2  |  0.3  |  0.4  |  0.5  |  Avg  |
-|----------------------|-------|-------|-------|-------|-------|-------|
-| TemporalMaxer (verb) | 27.8  | 26.6  | 25.3  | 23.1  | 19.9  | 24.5  |
-| TemporalMaxer (noun) | 26.3  | 25.2  | 23.5  | 21.3  | 17.6  | 22.8  |
+| Method                  |   0.1  |   0.2  |   0.3  |   0.4  |   0.5  |   Avg  |
+|-------------------------|--------|--------|--------|--------|--------|--------|
+| TemporalStdMaxer (verb) | 27.99  | 26.87  | 25.69  | 22.93  | 19.87  | 24.67  |
+| TemporalStdMaxer (noun) | 26.64  | 25.92  | 24.14  | 21.55  | 17.97  | 23.30  |
 
 
 ### Reproduce Our Results on THUMOS
