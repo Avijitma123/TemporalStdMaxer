@@ -156,7 +156,7 @@ class Scale(nn.Module):
 
 #         return out, out_mask.bool()
 
-
+#TemporalStdMaxer
 class TemporalStdMaxer(nn.Module):
     def __init__(
             self,
