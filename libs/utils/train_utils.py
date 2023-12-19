@@ -378,7 +378,8 @@ def valid_one_epoch(
     evaluator=None,
     output_file=None,
     tb_writer=None,
-    print_freq=20
+    print_freq=20,
+    save_graph_path=None
 ):
     """Test the model on the validation set"""
     # either evaluate the results or save the results
@@ -440,7 +441,17 @@ def valid_one_epoch(
         if ext_score_file is not None and isinstance(ext_score_file, str):
             results = postprocess_results(results, ext_score_file)
         # call the evaluator
-        _, mAP, _ = evaluator.evaluate(results, verbose=True)
+        _, mAP, tIoU_thresholds = evaluator.evaluate(results, verbose=True)
+        # Plot mAP vs tIoU
+        plt.figure()
+        plt.plot(tIoU_thresholds, mAP * 100, marker='o')
+        plt.xlabel('tIoU Threshold')
+        plt.ylabel('mAP (%)')
+        plt.title('mAP vs IoU')
+        plt.grid(True)
+         # Save the graph
+        if save_graph_path is not None:
+            plt.savefig(save_graph_path)
     else:
         # dump to a pickle file that can be directly used for evaluation
         with open(output_file, "wb") as f:
