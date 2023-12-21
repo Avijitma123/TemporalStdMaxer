@@ -12,19 +12,19 @@ We release the training and testing code for  EPIC-Kitchen 100 (verb, noun).
 1. [Introduction](#introduction)
 2. [Installation](#installation)
 3. [Usage](#usage)
-6. [Citation](#citation)
+
 
 ## Introduction
 In this work, we focus on replacing the complex self-attention mechanism with our straightforward method, TemporalStdMaxer. This method introduces a combination of max pooling, average pooling, and standard deviation computation, offering a more adaptable and flexible approach to capturing diverse temporal characteristics. The key modification in TemporalStdMaxer has the potential to significantly enhance performance, especially in challenging datasets such as Epic-Kitchens. The TemporalStdMaxer implementation involves the application of max pooling and average pooling along the temporal dimension, followed by the calculation of standard deviations. This process dynamically selects the vector with a higher standard deviation, emphasizing diverse temporal features. The simplicity of TemporalStdMaxer contributes to its effectiveness in capturing intricate temporal dynamics within video. 
 <div align="center">
-  <img src="figures/common_architecture.png" width="1100px"/>
+  <img src="figures/Model.png" width="1100px"/>
 </div>
 
 ## Installation
 #### a. Install packages
 ```bash
-conda create -n TemporalMaxer python=3.9
-conda activate TemporalMaxer
+conda create -n TemporalStdMaxer python=3.9
+conda activate TemporalStdMaxer
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
 python -m pip install -r requirements.txt
 pip install -e ./
