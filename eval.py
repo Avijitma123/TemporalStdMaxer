@@ -110,7 +110,7 @@ if __name__ == '__main__':
     """Entry Point"""
     # the arg parser
     parser = argparse.ArgumentParser(
-      description='Train a point-based TemporalMaxer for action localization')
+      description='Train a point-based TemporalStdMaxer for action localization')
     parser.add_argument('config', type=str, metavar='DIR',
                         help='path to a config file')
     parser.add_argument('ckpt', type=str, metavar='DIR',
