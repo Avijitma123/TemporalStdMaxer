@@ -2,13 +2,13 @@ import torch
 from torch import nn
 
 from .models import register_backbone
-from .blocks import (MaskedConv1D, LayerNorm, TemporalMaxer)
+from .blocks import (MaskedConv1D, LayerNorm, TemporalStdMaxer)
 
 
 @register_backbone("convPooler")
 class ConvPoolerBackbone(nn.Module):
     """
-        A backbone that combines convolutions with TemporalMaxer
+        A backbone that combines convolutions with TemporalStdMaxer
     """
 
     def __init__(
@@ -60,7 +60,7 @@ class ConvPoolerBackbone(nn.Module):
         # main branch using TemporalMaxer
         self.branch = nn.ModuleList()
         for idx in range(arch[1]):
-            self.branch.append(TemporalMaxer(kernel_size=3,
+            self.branch.append(TemporalStdMaxer(kernel_size=3,
                                              stride=scale_factor,
                                              padding=1,
                                              n_embd=n_embd))
