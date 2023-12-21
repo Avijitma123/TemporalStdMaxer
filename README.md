@@ -1,7 +1,7 @@
-## TemporalStdMaxer: Maximize Temporal Context with only Max Pooling for Temporal Action Localization
-This is the official implementation of the paper [TemporalMaxer](https://arxiv.org/pdf/2303.09055.pdf). 
+## TemporalStdMaxer: Maximize Temporal Context with Pooling & Standard Deviation for Temporal Action Localization
 
-We release the training and testing code for THUMOS, EPIC-Kitchen 100 (verb, noun), and MultiTHUMOS datasets.
+
+We release the training and testing code for  EPIC-Kitchen 100 (verb, noun).
 
 ## Operating Systems and Specs
 * Ubuntu 18.04.5 LTS
@@ -15,7 +15,7 @@ We release the training and testing code for THUMOS, EPIC-Kitchen 100 (verb, nou
 6. [Citation](#citation)
 
 ## Introduction
-Recent studies have emphasized the importance of applying long-term temporal context modeling (TCM) blocks to the extracted video clip features such as employing complex self-attention mechanisms. In this paper, we present the simplest method ever to address this task and argue that the extracted video clip features are already informative to achieve outstanding performance without sophisticated architectures. To this end, we introduce TemporalMaxer, which minimizes long-term temporal context modeling while maximizing information from the extracted video clip features with a basic, parameter-free, and local region operating max-pooling block. Picking out only the most critical information for adjacent and local clip embeddings, this block results in a more efficient TAL model. We demonstrate that TemporalMaxer outperforms other state-of-the-art methods that utilize long-term TCM such as self-attention on various TAL datasets while requiring significantly fewer parameters and computational resources.
+In this work, we focus on replacing the complex self-attention mechanism with our straightforward method, TemporalStdMaxer. This method introduces a combination of max pooling, average pooling, and standard deviation computation, offering a more adaptable and flexible approach to capturing diverse temporal characteristics. The key modification in TemporalStdMaxer has the potential to significantly enhance performance, especially in challenging datasets such as Epic-Kitchens. The TemporalStdMaxer implementation involves the application of max pooling and average pooling along the temporal dimension, followed by the calculation of standard deviations. This process dynamically selects the vector with a higher standard deviation, emphasizing diverse temporal features. The simplicity of TemporalStdMaxer contributes to its effectiveness in capturing intricate temporal dynamics within video. 
 <div align="center">
   <img src="figures/common_architecture.png" width="1100px"/>
 </div>
