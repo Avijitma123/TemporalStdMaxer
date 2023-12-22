@@ -443,16 +443,7 @@ def valid_one_epoch(
             results = postprocess_results(results, ext_score_file)
         # call the evaluator
         _, mAP, tIoU_thresholds = evaluator.evaluate(results, verbose=True)
-        # Plot mAP vs tIoU
-        plt.figure()
-        plt.plot(tIoU_thresholds, mAP * 100, marker='o')
-        plt.xlabel('tIoU Threshold')
-        plt.ylabel('mAP (%)')
-        plt.title('mAP vs IoU')
-        plt.grid(True)
-         # Save the graph
-        if save_graph_path is not None:
-            plt.savefig(save_graph_path)
+       
     else:
         # dump to a pickle file that can be directly used for evaluation
         with open(output_file, "wb") as f:

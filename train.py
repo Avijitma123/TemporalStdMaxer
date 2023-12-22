@@ -80,6 +80,13 @@ def main(args):
         val_dataset, False, None, 1, cfg['loader']['num_workers']
     )
 
+
+
+
+
+
+
+
     """3. create model, optimizer, and scheduler"""
     # model
     model = make_meta_arch(cfg['model_name'], **cfg['model'])
@@ -94,6 +101,11 @@ def main(args):
     # enable model EMA
     print("Using model EMA ...")
     model_ema = ModelEma(model)
+
+
+
+
+
 
     """4. Resume from model / Misc"""
     # resume from a checkpoint?
@@ -118,10 +130,17 @@ def main(args):
             print("=> no checkpoint found at '{}'".format(args.resume))
             return
 
+
+
+
     # save the current config
     with open(os.path.join(ckpt_folder, 'config.txt'), 'w') as fid:
         pprint(cfg, stream=fid)
         fid.flush()
+
+
+
+        
 
     """4. training / validation loop"""
     print("\nStart training model {:s} ...".format(cfg['model_name']))
